@@ -26,6 +26,7 @@ io.on('connection', (socket) => {
         // Send a response back to the client
         socket.emit('screenshotResponse', {
             message: 'Screenshot received!',
+            data
         });
     });
 
