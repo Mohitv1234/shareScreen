@@ -6,6 +6,11 @@ const socketIo = require('socket.io');
 
 // Create an Express application
 const app = express();
+const corsOptions ={
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
 app.use(cors());
 // Create an HTTP server and bind the app
 const server = http.createServer(app);
