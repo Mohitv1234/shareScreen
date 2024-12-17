@@ -1,11 +1,12 @@
 // Import dependencies
 const express = require('express');
 const http = require('http');
+const cors = require('cors');
 const socketIo = require('socket.io');
 
 // Create an Express application
 const app = express();
-
+app.use(cors());
 // Create an HTTP server and bind the app
 const server = http.createServer(app);
 
@@ -26,7 +27,6 @@ io.on('connection', (socket) => {
         // Send a response back to the client
         socket.emit('screenshotResponse', {
             message: 'Screenshot received!',
-            data
         });
     });
 
