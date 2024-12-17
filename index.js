@@ -16,7 +16,13 @@ app.use(cors());
 const server = http.createServer(app);
 
 // Set up Socket.io on the server
-const io = socketIo(server);
+const io = socketIo(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+    credentials: true
+  }
+});
 
 // Serve static files (optional, if you have a client-side project)
 app.use(express.static('public'));
